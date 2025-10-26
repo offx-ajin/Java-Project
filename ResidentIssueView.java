@@ -1,4 +1,4 @@
-package view; // Simplified package
+package view;
 
 import javax.swing.*;
 import java.awt.*;
@@ -40,4 +40,5 @@ public class ResidentIssueView {
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.INFORMATION_MESSAGE);
     }
+
 }
