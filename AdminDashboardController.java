@@ -1,7 +1,7 @@
-package controller; // Simplified package
+package controller; 
 
-import model.IssueModel; // Corrected import
-import view.AdminDashboardView; // Corrected import
+import model.IssueModel; 
+import view.AdminDashboardView; 
 
 import javax.swing.*;
 import java.awt.event.MouseAdapter;
@@ -22,7 +22,7 @@ public class AdminDashboardController {
                 JTable table = view.getPendingTable();
                 int row = table.getSelectedRow();
                 
-                if (row >= 0 && e.getClickCount() == 1) { // Single-click to move
+                if (row >= 0 && e.getClickCount() == 1) { 
                     String issueID = table.getValueAt(row, 0).toString();
                     String issue = table.getValueAt(row, 3).toString();
 
@@ -33,12 +33,13 @@ public class AdminDashboardController {
                             JOptionPane.YES_NO_OPTION);
 
                     if (choice == JOptionPane.YES_OPTION) {
-                        // --- Model Interaction ---
+                        
                         IssueModel.resolveIssue(row);
-                        // --- End Model Interaction ---
+                        
                     }
                 }
             }
         });
     }
+
 }
