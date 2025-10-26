@@ -24,12 +24,8 @@ public class AdminDashboardView extends JFrame {
         title.setBorder(BorderFactory.createEmptyBorder(10, 0, 10, 0));
         panel.add(title, BorderLayout.NORTH);
 
-        // --- JDBC Integration Change ---
-        // This ensures the tables reflect the current state of the MySQL database
         IssueModel.loadIssuesFromDatabase(); 
-        // -------------------------------
         
-        // Get models directly from the IssueModel
         pendingTable = new JTable(IssueModel.getPendingModel());
         JScrollPane pendingScroll = new JScrollPane(pendingTable);
         pendingScroll.setBorder(BorderFactory.createTitledBorder("Pending Issues"));
@@ -43,9 +39,9 @@ public class AdminDashboardView extends JFrame {
         panel.add(splitPane, BorderLayout.CENTER);
     }
 
-    // --- Public Getters for Controller ---
 
     public JTable getPendingTable() {
         return pendingTable;
     }
+
 }
