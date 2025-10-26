@@ -1,44 +1,36 @@
 package model;
 
-import javax.swing.JOptionPane; // <-- FIX: Import JOptionPane
+import javax.swing.JOptionPane; 
 import javax.swing.table.DefaultTableModel;
 import java.sql.*;
 
 public class IssueModel {
 
-    // --- JDBC Connection Details (for XAMPP/MySQL) ---
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/apartment_issues?useSSL=false&serverTimezone=UTC";
     private static final String USER = "root"; 
     private static final String PASSWORD = ""; 
     
-    // In-memory models are now populated by the database
+
     private static DefaultTableModel pendingModel = new DefaultTableModel(
             new Object[]{"Issue ID", "Resident", "Room", "Issue"}, 0);
     private static DefaultTableModel resolvedModel = new DefaultTableModel(
             new Object[]{"Issue ID", "Resident", "Room", "Issue"}, 0);
 
-    // Initial counter, only used if the table is empty
     private static int issueCounter = 1;
 
-    // Static initializer block to load the driver when the class is loaded
     static {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            loadIssuesFromDatabase(); // Load data immediately
+            loadIssuesFromDatabase(); 
         } catch (ClassNotFoundException e) {
-            // This line uses JOptionPane, which was not imported!
+
             JOptionPane.showMessageDialog(null, "MySQL JDBC Driver not found!", "Database Error", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
     }
-
-    // --- Private Helper Method to Connect ---
-
-    private static Connection getConnection() throws SQLException {
+ private static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(JDBC_URL, USER, PASSWORD);
     }
-
-    // --- Private Data Loading Method (READ) ---
 
     public static void loadIssuesFromDatabase() {
         pendingModel.setRowCount(0); 
@@ -75,13 +67,12 @@ public class IssueModel {
             }
 
         } catch (SQLException e) {
-            // This line caused the error!
+    
             JOptionPane.showMessageDialog(null, "Error loading data from database: " + e.getMessage(), "Database Load Error", JOptionPane.ERROR_MESSAGE);
             e.printStackTrace();
         }
     }
 
-    // --- Data Model Getters and Business Logic (addIssue, resolveIssue) are unchanged ---
 
     public static DefaultTableModel getPendingModel() {
         return pendingModel;
@@ -138,4 +129,5 @@ public class IssueModel {
             }
         }
     }
+
 }
