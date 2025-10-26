@@ -1,7 +1,7 @@
 package main; 
 
 import controller.LoginController;
-import model.IssueModel; // Import the Model
+import model.IssueModel; 
 import view.LoginView;
 
 import javax.swing.*;
@@ -9,7 +9,7 @@ import javax.swing.*;
 public class Main {
 
     public static void main(String[] args) {
-        // Force the IssueModel to load the JDBC driver and initial data
+       
         IssueModel.loadIssuesFromDatabase(); 
         
         SwingUtilities.invokeLater(Main::showRoleSelector);
@@ -24,7 +24,7 @@ public class Main {
         if (role != null) {
             LoginView loginView = new LoginView(role);
             
-            // Pass the loginView to the controller
+   
             new LoginController(loginView, role);
             
             loginView.setVisible(true);
@@ -33,3 +33,4 @@ public class Main {
         }
     }
 }
+
