@@ -1,20 +1,20 @@
-package view; // Simplified package
+package view; 
 
 import javax.swing.*;
 import java.awt.*;
 
 public class LoginView extends JFrame {
 
-    // User fields
+  
     private JTextField nameField, roomField, phoneField;
     private JButton userLoginBtn, clearBtn;
 
-    // Admin fields
+
     private JTextField regField;
     private JPasswordField passField;
     private JButton adminLoginBtn;
 
-    // Common fields
+
     private JButton exitBtn;
 
     public LoginView(String role) {
@@ -89,20 +89,20 @@ public class LoginView extends JFrame {
         panel.add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    // --- Public Getters for Controller ---
 
-    // User fields
+
+
     public JTextField getNameField() { return nameField; }
     public JTextField getRoomField() { return roomField; }
     public JTextField getPhoneField() { return phoneField; }
     public JButton getUserLoginBtn() { return userLoginBtn; }
     public JButton getClearBtn() { return clearBtn; }
 
-    // Admin fields
+
     public JTextField getRegField() { return regField; }
     public JPasswordField getPassField() { return passField; }
     public JButton getAdminLoginBtn() { return adminLoginBtn; }
 
-    // Common fields
     public JButton getExitBtn() { return exitBtn; }
+
 }
