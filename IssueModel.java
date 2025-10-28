@@ -7,8 +7,8 @@ import java.sql.*;
 public class IssueModel {
 
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/apartment_issues?useSSL=false&serverTimezone=UTC";
-    private static final String USER = "root"; 
-    private static final String PASSWORD = ""; 
+    private static final String USER = "user"; 
+    private static final String PASSWORD = "password"; 
     
 
     private static DefaultTableModel pendingModel = new DefaultTableModel(
@@ -131,3 +131,4 @@ public class IssueModel {
     }
 
 }
+
